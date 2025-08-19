@@ -6,7 +6,7 @@ const path = require("path");
 const cors = require("cors");
 const dotenv = require ("dotenv")
 const { type } = require("os");
-const { log } = require("console");
+const { log, error } = require("console");
 
 const app = express();
 dotenv.config()
@@ -24,6 +24,12 @@ app.get("/",(req,res)=>{
     res.send("Express App is Running")
 })
 
+app.get('/',(req,res)=>{
+    res.send({
+        activeStatus:true,
+        error:false,
+    })
+})
 
 //Image Storage  Engine
 const storage = multer.diskStorage({
