@@ -4,19 +4,20 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const dotenv = require ("dotenv")
 const { type } = require("os");
 const { log } = require("console");
 
 const app = express();
-
+dotenv.config()
 app.use(express.json());
 app.use(cors());
 
 
 // Database Connection with MongoDB
-mongoose.connect("mongodb+srv://adisingh142002:gauri2007@cluster0.zhzkten.mongodb.net/?retryWrites=true&w=majority&appName=e-commerce")
+mongoose.connect(process.env.MONGO_URL)
 
-const port = 4000;
+const port = process.env.PORT;
 
 //API creatiion
 app.get("/",(req,res)=>{
@@ -179,7 +180,7 @@ app.post('/signup',async(req,res)=>{
         }
     }
 
-    const token = jwt.sign(data,'secret_ecom')
+    const token = jwt.sign(data,process.env.SECRET_KEY)
     res.json({success:true,token})
 })
 
@@ -195,7 +196,7 @@ app.post('/login',async (req,res)=>{
                     id:user.id
                 }
             }
-            const token = jwt.sign(data,'secret_ecom')
+            const token = jwt.sign(data,process.env.SECRET_KEY)
             res.json({success:true,token})
         }
         else{
@@ -231,7 +232,7 @@ app.get('/popularinwomen',async (req,res)=>{
         }
         else{
             try{
-                const data = jwt.verify(token,'secret_ecom')
+                const data = jwt.verify(token,process.env.SECRET_KEY)
                 req.user = data.user;
                 next();
             } catch (error){
