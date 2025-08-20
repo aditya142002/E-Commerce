@@ -17,7 +17,7 @@ app.use(cors());
 // Database Connection with MongoDB
 mongoose.connect(process.env.MONGO_URL)
 
-const port = process.env.PORT;
+const port = process.env.PORT || 4000;
 
 //API creatiion
 app.get("/",(req,res)=>{
