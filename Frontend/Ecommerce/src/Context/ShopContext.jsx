@@ -14,7 +14,8 @@ export const ShopContext = createContext(null);
     }
 
 const ShopContextProvider = (props) => {
-
+    
+    const URL = "https://e-commerce-1-qv70.onrender.com"
     const[all_product,setAll_Product] = useState([]);
     const [cartItems,setCartItems] = useState(getDefaultCart());
     
