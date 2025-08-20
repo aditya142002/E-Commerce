@@ -273,13 +273,11 @@ app.post('/getcart',fetchUser,async (req,res)=>{
     res.json(userData.cartData);
 })
 
-// app.listen(port,(error)=>{
-//    if(!error){
-//     console.log("Server Running on "+port)
-//    }
-//    else{
-//     console.log("Error :"+error)
-//    } 
-// })
-
-module.exports = app;
+app.listen(port,(error)=>{
+   if(!error){
+    console.log("Server Running on "+port)
+   }
+   else{
+    console.log("Error :"+error)
+   } 
+})
