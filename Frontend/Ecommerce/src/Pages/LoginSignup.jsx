@@ -1,5 +1,5 @@
 import React from 'react'
-import './CSS/loginSignup.css'
+import './CSS/LoginSignup.css'
 import { useState } from 'react'
 import { data } from 'react-router-dom';
 
