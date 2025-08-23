@@ -17,7 +17,7 @@ app.use(cors());
 // Database Connection with MongoDB
 mongoose.connect(process.env.MONGO_URL)
 
-const port = process.env.PORT;
+const port =`https://e-commerce-1-qv70.onrender.com`;
 
 //API creatiion
 app.get("/",(req,res)=>{
