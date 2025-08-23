@@ -3,6 +3,8 @@ import p2_img from './product_2.png'
 import p3_img from './product_3.png'
 import p4_img from './product_4.png'
 
+export const URL = "https://e-commerce-1-qv70.onrender.com"
+
 let data_product = [
   {
     id:1,
