@@ -17,7 +17,7 @@ app.use(cors());
 // Database Connection with MongoDB
 mongoose.connect(process.env.MONGO_URL)
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT;
 
 //API creatiion
 app.get("/",(req,res)=>{
@@ -48,7 +48,7 @@ app.use('/images',express.static('upload/images'))
 app.post("/upload",upload.single('product'),(req,res)=>{
     res.json({
         success:1,
-        image_url:`http://localhost:${port}/images/${req.file.filename}`
+        image_url:`https://e-commerce-1-qv70.onrender.com/images/${req.file.filename}`
     })
 })
 
